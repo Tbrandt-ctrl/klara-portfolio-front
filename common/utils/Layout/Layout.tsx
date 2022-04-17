@@ -1,7 +1,14 @@
-import { LayoutProps } from "@/types/components/utils/Layout";
+import { LayoutProps } from "@/types/common/utils/Layout";
+
+import Header from "@/components/header/Header";
 
 const Layout = ({ children }: LayoutProps) => {
-  return <>{children}</>;
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
 };
 
 export default Layout;

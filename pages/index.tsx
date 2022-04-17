@@ -3,6 +3,10 @@ import Head from "next/head";
 
 import styles from "@/styles/pages/Home/Home.module.scss";
 
+import HeroSection from "@/components/pages/home/HeroSection";
+import ContentSection from "@/components/pages/home/ContentSection";
+import ContactSection from "@/components/pages/home/ContactSection";
+
 const Home: NextPage = () => {
   return (
     <>
@@ -12,8 +16,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1>Ready to start</h1>
+      <main className={`${styles.main} min-h-screen relative`}>
+        <HeroSection />
+        <ContentSection />
+        <ContactSection />
       </main>
     </>
   );
