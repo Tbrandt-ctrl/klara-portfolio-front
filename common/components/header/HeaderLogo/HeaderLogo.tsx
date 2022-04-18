@@ -17,14 +17,14 @@ const HeaderLogo = () => {
 graphics"
               transform="translate(0 23)"
               fill="#2a3649"
-              font-size="22"
+              fontSize="22"
               font-family="Poppins-Bold, Poppins"
-              font-weight="700"
+              fontWeight="700"
             >
               <tspan x="0" y="0">
                 Klara C
               </tspan>
-              <tspan font-size="11">
+              <tspan fontSize="11">
                 <tspan x="0" y="22">
                   graphics
                 </tspan>

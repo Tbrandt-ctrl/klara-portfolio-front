@@ -20,7 +20,7 @@ const HeaderBurger = ({ displayMenu, setDisplayMenu }: DisplayProps) => {
               x1="22"
               fill="none"
               stroke="#2a3649"
-              stroke-width="3"
+              strokeWidth="3"
             />
             <line
               id="Line_16"
@@ -29,7 +29,7 @@ const HeaderBurger = ({ displayMenu, setDisplayMenu }: DisplayProps) => {
               transform="translate(0 8)"
               fill="none"
               stroke="#2a3649"
-              stroke-width="3"
+              strokeWidth="3"
             />
             <line
               id="Line_17"
@@ -38,7 +38,7 @@ const HeaderBurger = ({ displayMenu, setDisplayMenu }: DisplayProps) => {
               transform="translate(0 16)"
               fill="none"
               stroke="#2a3649"
-              stroke-width="3"
+              strokeWidth="3"
             />
           </g>
         </svg>

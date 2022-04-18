@@ -1,13 +1,18 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
+import { Post } from "@/types/queries/posts";
+
 import styles from "@/styles/pages/Home/Home.module.scss";
 
 import HeroSection from "@/components/pages/home/HeroSection";
 import ContentSection from "@/components/pages/home/ContentSection";
 import ContactSection from "@/components/pages/home/ContactSection";
 
-const Home: NextPage = () => {
+import client from "apollo-client";
+import POSTS_QUERY from "queries/posts";
+
+const Home: NextPage = ({ posts }) => {
   return (
     <>
       <Head>
@@ -18,7 +23,7 @@ const Home: NextPage = () => {
 
       <main className={`${styles.main} min-h-screen relative`}>
         <HeroSection />
-        <ContentSection />
+        <ContentSection posts={posts} />
         <ContactSection />
       </main>
     </>
@@ -26,3 +31,13 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+  const { data } = await client.query({ query: POSTS_QUERY });
+
+  let posts = data.posts.data || [];
+
+  return {
+    props: { posts },
+  };
+}
