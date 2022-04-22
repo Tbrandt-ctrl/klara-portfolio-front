@@ -12,17 +12,17 @@ interface Image {
   data: ImageData;
 }
 
-interface PostHomeAttributes {
+interface CaseStudyHomeAttributes {
   __typename: string;
   title: string;
   short_description: string;
   thumbnail: Image;
 }
 
-interface PostHome {
+interface CaseStudyHome {
   __typename: string;
   id: string;
-  attributes: PostHomeAttributes;
+  attributes: CaseStudyHomeAttributes;
 }
 
-export type { PostHome };
+export type { CaseStudyHome };

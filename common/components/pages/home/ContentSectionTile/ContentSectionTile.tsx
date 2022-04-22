@@ -1,16 +1,18 @@
-import { Post } from "@/types/queries/posts";
+import { CaseStudyHome } from "@/types/queries/caseStudy";
 
-import Image from "next/image";
+const ContentSectionTile = ({ caseStudy }: { caseStudy: CaseStudyHome }) => {
+  const image = caseStudy.attributes.thumbnail.data.attributes;
 
-const ContentSectionTile = ({ post }: { post: Post }) => {
+  const url = `http://localhost:1337${image.url}`;
+
   return (
-    <div className="snap-start w-80 md:w-[40vw] flex flex-col gap-3 justify-start items-center">
+    <div className="snap-start w-80 md:w-[40vw] flex flex-col gap-10 ">
       <div className="relative w-full flex justify-center items-center">
-        <img src={post.img.url} className="w-full h-auto" />
+        <img src={url} className="w-full h-auto" />
       </div>
       <div className="text-main flex flex-col gap-3">
-        <h3 className="text-xl font-bold">{post.attributes.title}</h3>
-        <p className="">{post.attributes.description}</p>
+        <h3 className="text-2xl font-bold">{caseStudy.attributes.title}</h3>
+        <p className="">{caseStudy.attributes.short_description}</p>
       </div>
     </div>
   );

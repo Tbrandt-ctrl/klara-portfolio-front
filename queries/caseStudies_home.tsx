@@ -1,17 +1,19 @@
 import { gql } from "@apollo/client";
 
-const POSTS_QUERY = gql`
-  query Posts {
-    posts {
+const CASESTUDIES_HOME_QUERY = gql`
+  query CaseStudies {
+    caseStudies {
       data {
         id
         attributes {
           title
-          description
+          short_description
           thumbnail {
             data {
+              id
               attributes {
                 url
+                alternativeText
               }
             }
           }
@@ -21,4 +23,4 @@ const POSTS_QUERY = gql`
   }
 `;
 
-export default POSTS_QUERY;
+export default CASESTUDIES_HOME_QUERY;
