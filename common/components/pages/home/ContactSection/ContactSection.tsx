@@ -41,7 +41,7 @@ const ContactSection = () => {
           open to chat if you have any questions !{" "}
         </p>
       </div>
-      <div className="fccc gap-6">
+      <div className="fccc md:frcc gap-8">
         {socials.map((social) => {
           return (
             <Link href={social.link}>

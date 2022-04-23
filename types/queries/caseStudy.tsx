@@ -19,10 +19,29 @@ interface CaseStudyHomeAttributes {
   thumbnail: Image;
 }
 
+interface TextParagraph {
+  id: string;
+  title: string;
+  content: string;
+}
+
+interface CaseStudyAttributes {
+  __typename: string;
+  title: string;
+  short_description: string;
+  thumbnail: Image;
+}
+
 interface CaseStudyHome {
   __typename: string;
   id: string;
   attributes: CaseStudyHomeAttributes;
 }
 
-export type { CaseStudyHome };
+interface CaseStudy {
+  __typename: string;
+  id: string;
+  attributes: CaseStudyAttributes;
+}
+
+export type { CaseStudyHome, CaseStudy };
