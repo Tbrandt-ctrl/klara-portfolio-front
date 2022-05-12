@@ -1,21 +1,19 @@
 import { gql } from "@apollo/client";
 
+import { CASESTUDY_IMAGE_FRAGMENTS } from "./fragments";
+
 const CASESTUDIES_HOME_QUERY = gql`
-  query CaseStudies {
-    caseStudies {
+  ${CASESTUDY_IMAGE_FRAGMENTS}
+  query CaseStudies($locale: I18NLocaleCode) {
+    caseStudies(locale: $locale) {
       data {
         id
         attributes {
           title
           short_description
+          slug
           thumbnail {
-            data {
-              id
-              attributes {
-                url
-                alternativeText
-              }
-            }
+            ...imageField
           }
         }
       }

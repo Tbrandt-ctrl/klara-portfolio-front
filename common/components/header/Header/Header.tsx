@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-[100vw] fixed z-20 top-0 left-0">
+    <header className="w-[100vw] fixed z-20 top-0 left-0 bg-white">
       <nav className="flex items-center justify-between flex-wrap  p-6">
         <HeaderLogo />
         <HeaderBurger {...displayProps} />

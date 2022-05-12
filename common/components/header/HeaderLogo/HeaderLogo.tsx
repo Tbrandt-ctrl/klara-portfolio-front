@@ -3,7 +3,7 @@ import Link from "next/link";
 const HeaderLogo = () => {
   return (
     <div className="flex items-center flex-shrink-0 mr-6">
-      <Link href="./">
+      <Link href="/">
         <a>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ graphics"
               transform="translate(0 23)"
               fill="#2a3649"
               fontSize="22"
-              font-family="Poppins-Bold, Poppins"
+              fontFamily="Poppins-Bold, Poppins"
               fontWeight="700"
             >
               <tspan x="0" y="0">

@@ -1,21 +1,15 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 
 import { CaseStudyHome } from "@/types/queries/caseStudy";
 
 import styles from "@/styles/pages/Home/Home.module.scss";
 
-import HeroSection from "@/components/pages/home/HeroSection";
+import { getHomeCaseStudies } from "lib/caseStudiesQueries";
+
+import HomeHero from "@/components/pages/home/HomeHero";
 import ContentSection from "@/components/pages/home/ContentSection";
-import ContactSection from "@/components/pages/home/ContactSection";
-
-import client from "apollo-client";
-
-import CASESTUDIES_HOME_QUERY from "@/queries/caseStudies_home";
 
 const Home = ({ caseStudies }: { caseStudies: CaseStudyHome[] }) => {
-  console.log(caseStudies);
-
   return (
     <>
       <Head>
@@ -25,9 +19,8 @@ const Home = ({ caseStudies }: { caseStudies: CaseStudyHome[] }) => {
       </Head>
 
       <main className={`${styles.main} min-h-screen relative`}>
-        <HeroSection />
+        <HomeHero />
         <ContentSection caseStudies={caseStudies} />
-        <ContactSection />
       </main>
     </>
   );
@@ -35,12 +28,8 @@ const Home = ({ caseStudies }: { caseStudies: CaseStudyHome[] }) => {
 
 export default Home;
 
-export async function getStaticProps() {
-  const { data } = await client.query({ query: CASESTUDIES_HOME_QUERY });
-
-  let caseStudies = data.caseStudies.data || [];
-
-  console.log(caseStudies);
+export async function getStaticProps({ locale }: { locale: string }) {
+  const caseStudies = await getHomeCaseStudies(locale);
 
   return {
     props: { caseStudies },

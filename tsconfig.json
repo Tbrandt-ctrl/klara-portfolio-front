@@ -25,7 +25,8 @@
       "@/utils/*": ["common/utils/*"],
       "@/common/*": ["common/*"],
       "@/types/*": ["types/*"],
-      "@/queries/*": ["queries/*"]
+      "@/queries/*": ["queries/*"],
+      "@/locales/*": ["locales/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

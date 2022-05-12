@@ -1,23 +1,28 @@
 import { gql } from "@apollo/client";
+import { CASESTUDY_FRAGMENTS } from "./fragments";
 
-const CASESTUDIES_QUERY = gql`
-  query CaseStudies {
-    caseStudies {
+const CASESTUDY_FILTER_QUERY = gql`
+  ${CASESTUDY_FRAGMENTS}
+  query CaseStudies($slug: String, $locale: I18NLocaleCode) {
+    caseStudies(locale: $locale, filters: { slug: { eq: $slug } }) {
       data {
         id
         attributes {
           title
           short_description
           thumbnail {
-            data {
+            ...imageField
+          }
+
+          content {
+            ... on ComponentImageSingleMedia {
               id
-              attributes {
-                url
-                alternativeText
+              __typename
+              media {
+                ...imageField
               }
             }
-          }
-          content {
+
             ... on ComponentTextParagrah {
               id
               title
@@ -30,43 +35,21 @@ const CASESTUDIES_QUERY = gql`
                 title
                 description
                 icon {
-                  data {
-                    id
-                    attributes {
-                      url
-                      alternativeText
-                    }
-                  }
+                  ...imageField
                 }
+              }
+            }
+            ... on ComponentImageCarousel {
+              id
+              carousel_images {
+                ...imageFields
               }
             }
           }
           AttributeCards {
-            ... on ComponentCardsAttributeCards {
-              id
-              AttributeCard {
-                id
-                title
-                value
-                icon {
-                  data {
-                    id
-                    attributes {
-                      url
-                      alternativeText
-                    }
-                  }
-                }
-              }
-            }
-          }
-
-          thumbnail {
-            data {
-              attributes {
-                url
-              }
-            }
+            id
+            title
+            value
           }
         }
       }
@@ -74,4 +57,4 @@ const CASESTUDIES_QUERY = gql`
   }
 `;
 
-export default CASESTUDIES_QUERY;
+export default CASESTUDY_FILTER_QUERY;
