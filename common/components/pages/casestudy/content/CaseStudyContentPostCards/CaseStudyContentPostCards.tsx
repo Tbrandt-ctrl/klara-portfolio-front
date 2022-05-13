@@ -15,11 +15,10 @@ const CaseStudyContentPostCards = ({ element }: { element: PostCards }) => {
   const post_cards = element.PostCard;
 
   return mounted ? (
-    <div className="flex flex-row justify-center items-start  gap-20">
+    <div className="flex flex-col md:flex-row  justify-center items-center md:items-start  gap-10">
       {post_cards.map((post_card, index) => {
         const url = `http://localhost:1337${post_card.icon.data.attributes.url}`;
         const { height, width } = post_card.icon.data.attributes;
-        console.log(post_card.icon.data.attributes.height);
 
         return (
           <div

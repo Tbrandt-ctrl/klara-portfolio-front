@@ -7,7 +7,7 @@ import styles from "@/styles/pages/Home/Home.module.scss";
 import { getHomeCaseStudies } from "lib/caseStudiesQueries";
 
 import HomeHero from "@/components/pages/home/HomeHero";
-import ContentSection from "@/components/pages/home/ContentSection";
+import ContentSection from "@/components/pages/home/HomeContentSection";
 
 const Home = ({ caseStudies }: { caseStudies: CaseStudyHome[] }) => {
   return (
@@ -18,7 +18,7 @@ const Home = ({ caseStudies }: { caseStudies: CaseStudyHome[] }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={`${styles.main} min-h-screen relative`}>
+      <main className={`${styles.main} min-h-screen relative scroll-smooth`}>
         <HomeHero />
         <ContentSection caseStudies={caseStudies} />
       </main>

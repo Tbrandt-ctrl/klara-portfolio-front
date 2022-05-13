@@ -15,7 +15,7 @@ const CaseStudyContentText = ({ element }: { element: TextContent }) => {
 
   return mounted ? (
     <div className="">
-      <h2 className="uppercase pb-6">{element.title}</h2>
+      <h2 className="uppercase pb-8">{element.title}</h2>
       <div className={styles.content}>
         <ReactMarkdown children={element.content} />
       </div>

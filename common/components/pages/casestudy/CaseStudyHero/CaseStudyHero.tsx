@@ -9,8 +9,16 @@ const CaseStudyHero = ({ attributes }: { attributes: CaseStudyAttributes }) => {
   const { height, width } = thumbnail.data.attributes;
 
   return (
-    <div className="h-screen fccc p-40">
-      <Image src={url} height={height} width={width} />
+    <div className="relative h-screen fccc p-40">
+      <div className="relative h-[80vh] w-[80vw]">
+        <Image
+          src={url}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="border rounded-lg"
+        />
+      </div>
     </div>
   );
 };

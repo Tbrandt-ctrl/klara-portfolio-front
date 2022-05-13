@@ -24,7 +24,7 @@ const HeaderNav = ({ displayMenu, setDisplayMenu }: DisplayProps) => {
                   <a
                     className={`block mt-4 lg:inline-block lg:mt-0 mr-4 ${
                       index === t.nav_items.length - 1 &&
-                      "lg: bg-main border rounded-2xl text-white px-3 py-2"
+                      "lg: bg-main border rounded-2xl text-white px-4 py-2"
                     }`}
                   >
                     {item.title}

@@ -18,7 +18,7 @@ const CaseStudyContentSection = ({
 }) => {
   const { content } = attributes;
   return (
-    <section className="flex flex-col gap-14 py-14">
+    <section className="flex flex-col gap-24 py-14">
       {content &&
         content.map(
           (

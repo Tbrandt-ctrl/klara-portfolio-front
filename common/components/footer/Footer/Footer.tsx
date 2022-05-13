@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <footer className="w-100">
-      <section className="fccc h-[80vh] gap-10">
+      <section className="fccc h-[80vh] gap-10" id="contact">
         <div className="fccc gap-4">
           <h1 className="text-center text-4xl font-bold text-main">
             {t.title}
