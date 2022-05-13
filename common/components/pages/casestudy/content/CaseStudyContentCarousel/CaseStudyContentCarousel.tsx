@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CarouselContent, ImageData } from "@/types/queries/caseStudy";
 
 import Image from "next/image";
+import DefaultImage from "@/utils/DefaultImage";
 
 const CaseStudyContentCarousel = ({
   element,
@@ -14,12 +15,17 @@ const CaseStudyContentCarousel = ({
   const { carousel_images } = element;
 
   const current_image = carousel_images.data[current];
+
   const current_url = `http://localhost:1337${current_image.attributes.url}`;
+  const current_alternativeText = current_image.attributes.alternativeText;
 
   return (
     <div className="relative w-full h-auto flex flex-col justify-center items-center gap-6 ">
       <div className="relative flex justify-center items-center h-[60vh] w-full ">
-        <Image src={current_url} layout="fill" objectFit="cover" />
+        <DefaultImage
+          url={current_url}
+          alternativeText={current_alternativeText}
+        />
       </div>
       <div className="frcc gap-6 w-full lg:px-44">
         {carousel_images.data.map((image, index) => (
@@ -58,6 +64,8 @@ const ImageSlide = ({
   }, [current]);
 
   const url = `http://localhost:1337${image.attributes.url}`;
+
+  const { alternativeText } = image.attributes;
   return (
     <div
       onClick={() => setCurrent(index)}
@@ -65,7 +73,7 @@ const ImageSlide = ({
         100 / length
       )}%] hover:cursor-pointer ${active && "border border-red-500"} `}
     >
-      <Image src={url} layout="fill" objectFit="cover" />
+      <DefaultImage url={url} alternativeText={alternativeText} />
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import { CaseStudyHome } from "@/types/queries/caseStudy";
 import Link from "next/link";
-import Image from "next/image";
+
 import ReactMarkdown from "react-markdown";
+import DefaultImage from "@/utils/DefaultImage";
 
 const HomeContentSectionTile = ({
   caseStudy,
@@ -11,18 +12,14 @@ const HomeContentSectionTile = ({
   const image = caseStudy.attributes.thumbnail.data.attributes;
 
   const url = `http://localhost:1337${image.url}`;
+  const { alternativeText } = image;
 
   return (
     <Link href={`/casestudy/${caseStudy.attributes.slug}`}>
       <a>
         <div className="w-80 md:w-[40vw] h-auto flex flex-col gap-10 ">
           <div className="relative h-[30vh] lg:h-[60vh] w-full ">
-            <Image
-              className="border rounded-lg"
-              src={url}
-              layout="fill"
-              objectFit="cover"
-            />
+            <DefaultImage url={url} rounded alternativeText={alternativeText} />
           </div>
 
           <div className="text-main flex flex-col gap-3 ">

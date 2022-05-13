@@ -1,4 +1,5 @@
 import { SingleMediaContent } from "@/types/queries/caseStudy";
+import DefaultImage from "@/utils/DefaultImage";
 
 import Image from "next/image";
 
@@ -10,13 +11,16 @@ const CaseStudyContentSingleMedia = ({
   const { media } = element;
 
   const url = `http://localhost:1337${media.data.attributes.url}`;
+  const { height, width, alternativeText } = media.data.attributes;
 
   return (
     <div className="relative">
-      <Image
-        src={url}
-        height={media.data.attributes.height}
-        width={media.data.attributes.width}
+      <DefaultImage
+        rounded
+        height={height}
+        width={width}
+        alternativeText={alternativeText}
+        url={url}
       />
     </div>
   );
