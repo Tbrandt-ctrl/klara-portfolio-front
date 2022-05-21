@@ -1,6 +1,6 @@
 import client from "apollo-client";
 
-import CASESTUDIES_HOME_QUERY from "@/queries/caseStudies_home";
+import CASESTUDIES_FILTERED_QUERY from "@/queries/caseStudies_filtered";
 
 import { CaseStudySlug } from "@/types/queries/caseStudy";
 import CASESTUDIES_SLUG_QUERY from "@/queries/caseStudies_slug";
@@ -34,10 +34,10 @@ export async function getCaseStudyBySlug(slug: string, locale: string) {
   return caseStudy;
 }
 
-export async function getHomeCaseStudies(locale: string) {
+export async function getFilteredCaseStudies(locale: string, limit: number) {
   const { data } = await client.query({
-    query: CASESTUDIES_HOME_QUERY,
-    variables: { locale },
+    query: CASESTUDIES_FILTERED_QUERY,
+    variables: { locale, limit },
   });
 
   let caseStudies = data.caseStudies.data || [];

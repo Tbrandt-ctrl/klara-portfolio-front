@@ -6,12 +6,14 @@ const DefaultImage = ({
   url,
   alternativeText,
   rounded,
+  fill,
 }: {
   height?: number;
   width?: number;
   url: string;
   alternativeText: string;
   rounded?: boolean;
+  fill?: boolean;
 }) => {
   return height && width ? (
     <Image
@@ -27,7 +29,8 @@ const DefaultImage = ({
       alt={alternativeText}
       className={`${rounded && "border rounded-lg"}`}
       layout="fill"
-      objectFit="cover"
+      objectPosition="center"
+      objectFit={fill ? "fill" : "cover"}
     />
   );
 };

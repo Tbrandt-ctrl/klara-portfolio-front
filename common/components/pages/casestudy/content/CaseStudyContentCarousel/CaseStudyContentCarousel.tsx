@@ -27,7 +27,7 @@ const CaseStudyContentCarousel = ({
           alternativeText={current_alternativeText}
         />
       </div>
-      <div className="frcc gap-6 w-full lg:px-44">
+      <div className="frcc gap-6 w-full  xl:px-36">
         {carousel_images.data.map((image, index) => (
           <ImageSlide
             image={image}
@@ -66,14 +66,17 @@ const ImageSlide = ({
   const url = `http://localhost:1337${image.attributes.url}`;
 
   const { alternativeText } = image.attributes;
-  return (
+
+  return length ? (
     <div
       onClick={() => setCurrent(index)}
-      className={`relative flex justify-center items-center h-24 w-[${Math.round(
-        100 / length
-      )}%] hover:cursor-pointer ${active && "border border-red-500"} `}
+      className={`relative flex justify-center items-center h-24 w-56 hover:cursor-pointer ${
+        active && "border border-red-500"
+      } `}
     >
       <DefaultImage url={url} alternativeText={alternativeText} />
     </div>
+  ) : (
+    <div></div>
   );
 };

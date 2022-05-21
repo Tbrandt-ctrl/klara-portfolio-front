@@ -15,6 +15,13 @@ const CASESTUDY_FILTER_QUERY = gql`
           }
 
           content {
+            ... on ComponentButtonButtonLink {
+              id
+              __typename
+              content
+              link
+            }
+
             ... on ComponentImageSingleMedia {
               id
               __typename

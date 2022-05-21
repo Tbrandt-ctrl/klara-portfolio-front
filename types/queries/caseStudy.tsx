@@ -15,7 +15,7 @@ interface Image {
   data: ImageData;
 }
 
-interface CaseStudyHomeAttributes {
+interface CaseStudyFilteredAttributes {
   __typename: string;
   title: string;
   short_description: string;
@@ -67,19 +67,32 @@ interface SingleMediaContent {
   media: Image;
 }
 
+interface CaseStudyButtonContent {
+  __typename: string;
+  id: string;
+  content: string;
+  link: string;
+}
+
 interface CaseStudyAttributes {
   __typename: string;
   title: string;
   short_description: string;
   thumbnail: Image;
   AttributeCards: AttributeCard[];
-  content: (TextContent | PostCards | CarouselContent)[];
+  content: (
+    | TextContent
+    | PostCards
+    | CarouselContent
+    | SingleMediaContent
+    | CaseStudyButtonContent
+  )[];
 }
 
-interface CaseStudyHome {
+interface CaseStudyFiltered {
   __typename: string;
   id: string;
-  attributes: CaseStudyHomeAttributes;
+  attributes: CaseStudyFilteredAttributes;
 }
 
 interface CaseStudySlug {
@@ -93,7 +106,7 @@ interface CaseStudy {
 }
 
 export type {
-  CaseStudyHome,
+  CaseStudyFiltered,
   CaseStudy,
   CaseStudySlug,
   CaseStudyAttributes,
@@ -105,4 +118,5 @@ export type {
   ImageAttributes,
   ImageData,
   SingleMediaContent,
+  CaseStudyButtonContent,
 };

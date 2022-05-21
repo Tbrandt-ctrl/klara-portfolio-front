@@ -4,12 +4,14 @@ import {
   TextContent,
   CarouselContent,
   SingleMediaContent,
+  CaseStudyButtonContent,
 } from "@/types/queries/caseStudy";
 
 import CaseStudyContentText from "@/components/pages/casestudy/content/CaseStudyContentText";
 import CaseStudyContentPostCards from "@/components/pages/casestudy/content/CaseStudyContentPostCards";
 import CaseStudyContentCarousel from "../CaseStudyContentCarousel";
 import CaseStudyContentSingleMedia from "../CaseStudyContentSingleMedia";
+import CaseStudyContentButton from "../CaseStudyContentButton";
 
 const CaseStudyContentSection = ({
   attributes,
@@ -18,7 +20,7 @@ const CaseStudyContentSection = ({
 }) => {
   const { content } = attributes;
   return (
-    <section className="flex flex-col gap-24 py-14">
+    <section className="flex flex-col gap-24 py-14 w-full">
       {content &&
         content.map(
           (
@@ -26,11 +28,22 @@ const CaseStudyContentSection = ({
               | TextContent
               | PostCards
               | CarouselContent
-              | SingleMediaContent,
+              | SingleMediaContent
+              | CaseStudyButtonContent,
             index: number
           ) => {
             if (element) {
               switch (element.__typename) {
+                case "ComponentButtonButtonLink":
+                  return (
+                    element && (
+                      <CaseStudyContentButton
+                        key={index}
+                        element={element as CaseStudyButtonContent}
+                      />
+                    )
+                  );
+
                 case "ComponentImageSingleMedia":
                   return (
                     element && (

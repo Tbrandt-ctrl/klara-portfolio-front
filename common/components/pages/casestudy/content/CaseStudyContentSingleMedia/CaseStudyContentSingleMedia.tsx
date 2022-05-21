@@ -1,8 +1,6 @@
 import { SingleMediaContent } from "@/types/queries/caseStudy";
 import DefaultImage from "@/utils/DefaultImage";
 
-import Image from "next/image";
-
 const CaseStudyContentSingleMedia = ({
   element,
 }: {

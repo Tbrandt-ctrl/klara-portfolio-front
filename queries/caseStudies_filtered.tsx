@@ -2,10 +2,10 @@ import { gql } from "@apollo/client";
 
 import { CASESTUDY_IMAGE_FRAGMENTS } from "./fragments";
 
-const CASESTUDIES_HOME_QUERY = gql`
+const CASESTUDIES_FILTERED_QUERY = gql`
   ${CASESTUDY_IMAGE_FRAGMENTS}
-  query CaseStudies($locale: I18NLocaleCode) {
-    caseStudies(locale: $locale) {
+  query CaseStudies($locale: I18NLocaleCode, $limit: Int) {
+    caseStudies(locale: $locale, pagination: { limit: $limit }) {
       data {
         id
         attributes {
@@ -21,4 +21,4 @@ const CASESTUDIES_HOME_QUERY = gql`
   }
 `;
 
-export default CASESTUDIES_HOME_QUERY;
+export default CASESTUDIES_FILTERED_QUERY;
