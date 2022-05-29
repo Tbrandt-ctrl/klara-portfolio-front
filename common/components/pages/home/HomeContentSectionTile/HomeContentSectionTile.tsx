@@ -13,8 +13,7 @@ const HomeContentSectionTile = ({
     caseStudy.attributes.thumbnail &&
     caseStudy.attributes.thumbnail.data.attributes;
 
-  const url =
-    caseStudy.attributes.thumbnail && `http://localhost:1337${image.url}`;
+  const url = caseStudy.attributes.thumbnail && `${image.url}`;
   const { alternativeText } = caseStudy.attributes.thumbnail && image;
 
   return (

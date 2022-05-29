@@ -24,8 +24,15 @@ const HeaderNav = ({ displayMenu, setDisplayMenu }: DisplayProps) => {
     variables: { name: name },
   });
 
-  const asset = data && data.asset.data.attributes?.File[0];
-  const url = data && asset.file.data.attributes.url;
+  console.log(data);
+
+  const asset =
+    !loading &&
+    !error &&
+    data.attributes &&
+    data.asset.data.attributes?.File[0];
+  const url =
+    !loading && !error && data.attributes && asset.file.data.attributes.url;
 
   return (
     <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
@@ -41,10 +48,14 @@ const HeaderNav = ({ displayMenu, setDisplayMenu }: DisplayProps) => {
         ) : (
           <>
             {t.nav_items &&
+              data &&
               t.nav_items.map(
                 (item: { title: string; link: string }, index: number) => {
                   return (
-                    <Link key={index} href={index === 1 ? url : item.link}>
+                    <Link
+                      key={index}
+                      href={index === 1 && url ? url : item.link}
+                    >
                       <a
                         target={`${index === 1 ? "_blank" : ""}`}
                         className={`block mt-4 lg:inline-block lg:mt-0 mr-6 text-lg hover:underline ${

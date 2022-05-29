@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { CarouselContent, ImageData } from "@/types/queries/caseStudy";
+import { CarouselContent } from "@/types/queries/caseStudy";
+import { ImageData } from "@/types/queries/default";
 
 import Image from "next/image";
 import DefaultImage from "@/utils/DefaultImage";

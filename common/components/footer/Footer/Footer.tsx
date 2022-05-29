@@ -18,7 +18,11 @@ const Footer = () => {
 
   const { loading, error, data } = useQuery(SOCIAL_QUERY);
 
-  const socials = data?.social.data.attributes.SocialElement;
+  const socials =
+    !loading &&
+    !error &&
+    data.social.data &&
+    data?.social.data.attributes.SocialElement;
 
   return (
     <footer className="w-100">
@@ -37,35 +41,36 @@ const Footer = () => {
               <p className="text-center text-lg max-w-xs">{t.description}</p>
             </div>
             <div className="fccc md:frcc gap-8">
-              {socials?.map((social: SocialElement, index: number) => {
-                const icon = social.icon;
-                const { url, alternativeText, height, width } =
-                  icon.data.attributes;
+              {socials &&
+                socials?.map((social: SocialElement, index: number) => {
+                  const icon = social.icon;
+                  const { url, alternativeText, height, width } =
+                    icon.data.attributes;
 
-                return (
-                  <>
-                    <Link href={social.link} key={index}>
-                      <a className="fccc gap-6 relative">
-                        <div className="h-10 w-10 relative">
-                          <DefaultImage
-                            url={url}
-                            alternativeText={alternativeText}
-                            fill
-                          />
-                        </div>
-                        {social.name}
-                      </a>
-                    </Link>
-                  </>
-                );
-                /*  /* (social, index)
+                  return (
+                    <>
+                      <Link href={social.link} key={index}>
+                        <a className="fccc gap-6 relative" target="_blank">
+                          <div className="h-10 w-10 relative">
+                            <DefaultImage
+                              url={url}
+                              alternativeText={alternativeText}
+                              fill
+                            />
+                          </div>
+                          {social.name}
+                        </a>
+                      </Link>
+                    </>
+                  );
+                  /*  /* (social, index)
                  =>   return <>  {/* <Link href={social.link} key={index}>
                       <a className="fccc gap-2">
                         {social.icon}
                         {social.text}
                       </a>
                     </Link> }</> </> */
-              })}
+                })}
             </div>
           </>
         )}
