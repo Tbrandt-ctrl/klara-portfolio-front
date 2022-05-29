@@ -10,18 +10,19 @@ const HomeContentSectionTile = ({
   caseStudy: CaseStudyFiltered;
 }) => {
   const image =
-    caseStudy.attributes.thumbnail &&
+    caseStudy.attributes.thumbnail.data &&
     caseStudy.attributes.thumbnail.data.attributes;
 
-  const url = caseStudy.attributes.thumbnail && `${image.url}`;
-  const { alternativeText } = caseStudy.attributes.thumbnail && image;
+  const alternativeText = (image && image.alternativeText) || "";
+
+  const url = (image && image.url) || "";
 
   return (
     <Link href={`/casestudy/${caseStudy.attributes.slug}`}>
       <a>
         <div className="w-80 md:w-[40vw] h-auto flex flex-col gap-10 ">
           <div className="relative h-[30vh] lg:h-[60vh] w-full ">
-            {caseStudy.attributes.thumbnail && (
+            {image && url && (
               <DefaultImage
                 url={url}
                 rounded

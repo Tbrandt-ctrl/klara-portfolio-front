@@ -11,7 +11,7 @@ const DefaultImage = ({
   height?: number;
   width?: number;
   url: string;
-  alternativeText: string;
+  alternativeText?: string;
   rounded?: boolean;
   fill?: boolean;
 }) => {
