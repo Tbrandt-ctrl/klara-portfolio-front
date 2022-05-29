@@ -17,7 +17,7 @@ const CaseStudyContentText = ({ element }: { element: TextContent }) => {
     <div className="">
       <h2 className="uppercase pb-8">{element.title}</h2>
       <div className={styles.content}>
-        <ReactMarkdown children={element.content} />
+        <div dangerouslySetInnerHTML={{ __html: element.content }} />
       </div>
     </div>
   ) : (

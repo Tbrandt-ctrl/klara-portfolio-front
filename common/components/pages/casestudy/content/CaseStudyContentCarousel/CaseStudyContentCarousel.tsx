@@ -24,12 +24,14 @@ const CaseStudyContentCarousel = ({
       <div className="relative flex justify-center items-center h-[60vh] w-full ">
         <DefaultImage
           url={current_url}
+          rounded
           alternativeText={current_alternativeText}
         />
       </div>
       <div className="frcc gap-6 w-full  xl:px-36">
         {carousel_images.data.map((image, index) => (
           <ImageSlide
+            key={index}
             image={image}
             current={current}
             setCurrent={setCurrent}
@@ -71,10 +73,10 @@ const ImageSlide = ({
     <div
       onClick={() => setCurrent(index)}
       className={`relative flex justify-center items-center h-24 w-56 hover:cursor-pointer ${
-        active && "border border-red-500"
+        active && "border border-red-500  rounded-lg"
       } `}
     >
-      <DefaultImage url={url} alternativeText={alternativeText} />
+      <DefaultImage url={url} alternativeText={alternativeText} rounded />
     </div>
   ) : (
     <div></div>

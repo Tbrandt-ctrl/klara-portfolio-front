@@ -6,3 +6,5 @@ const client = new ApolloClient({
 });
 
 export default client;
+
+//`${process.env.STRAPI_URI}graphql`

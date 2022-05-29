@@ -8,6 +8,7 @@ import { getFilteredCaseStudies } from "lib/caseStudiesQueries";
 
 import HomeHero from "@/components/pages/home/HomeHero";
 import ContentSection from "@/components/pages/home/HomeContentSection";
+import { Asset } from "@/types/queries/asset";
 
 const Home = ({ caseStudies }: { caseStudies: CaseStudyFiltered[] }) => {
   return (
