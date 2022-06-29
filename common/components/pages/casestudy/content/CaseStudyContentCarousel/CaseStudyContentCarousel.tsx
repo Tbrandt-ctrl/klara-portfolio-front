@@ -17,7 +17,7 @@ const CaseStudyContentCarousel = ({
 
   const current_image = carousel_images.data[current];
 
-  const current_url = `http://localhost:1337${current_image.attributes.url}`;
+  const current_url = (current_image && current_image.attributes.url) || "";
   const current_alternativeText = current_image.attributes.alternativeText;
 
   return (
@@ -66,7 +66,7 @@ const ImageSlide = ({
     setActive(current === index);
   }, [current]);
 
-  const url = `http://localhost:1337${image.attributes.url}`;
+  const url = image?.attributes.url || "";
 
   const { alternativeText } = image.attributes;
 

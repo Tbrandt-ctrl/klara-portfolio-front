@@ -12,8 +12,8 @@ const CaseStudyAttributesSection = ({
       {AttributeCards &&
         AttributeCards.map((attributeCard, index) => {
           return (
-            <div className=" text-center fccc text-xl gap-4" key={index}>
-              <span className=" font-bold">{attributeCard.title}</span>
+            <div className="text-center fccc text-xl gap-4" key={index}>
+              <span className="font-bold">{attributeCard.title}</span>
               <span>{attributeCard.value}</span>
             </div>
           );

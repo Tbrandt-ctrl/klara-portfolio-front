@@ -30,7 +30,7 @@ const DefaultImage = ({
       className={`${rounded && "border rounded-lg"}`}
       layout="fill"
       objectPosition="center"
-      objectFit={fill ? "fill" : "cover"}
+      objectFit={fill ? "fill" : "contain"}
     />
   );
 };

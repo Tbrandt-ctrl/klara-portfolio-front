@@ -1,6 +1,5 @@
 import MailIcon from "@/common/icons/MailIcon";
 import PhoneIcon from "@/common/icons/PhoneIcon";
-import HeartIcon from "@/common/icons/HeartIcon";
 import BuildingIcon from "@/common/icons/BuildingIcon";
 
 export default {
@@ -16,11 +15,6 @@ export default {
     {
       icon: <PhoneIcon />,
       text: "+33 (0)7 67 08 53 94",
-      link: "/",
-    },
-    {
-      icon: <HeartIcon />,
-      text: "LinkedIn",
       link: "/",
     },
     {

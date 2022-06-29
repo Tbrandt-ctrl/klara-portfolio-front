@@ -2,9 +2,9 @@ import { Image, Images, ImageAttributes, ImageData } from "./default";
 
 interface SocialElement {
   id: string;
-  name: string;
+  text: string;
   link: string;
-  icon: Image;
+  icon: any;
 }
 
 interface SocialAttributes {

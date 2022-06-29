@@ -8,7 +8,7 @@ const CaseStudyContentSingleMedia = ({
 }) => {
   const { media } = element;
 
-  const url = `http://localhost:1337${media.data.attributes.url}`;
+  const url = media?.data.attributes.url || "";
   const { height, width, alternativeText } = media.data.attributes;
 
   return (
