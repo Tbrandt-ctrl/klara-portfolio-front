@@ -30,3 +30,7 @@ a {
     @apply flex justify-center items-center flex-row;
   }
 }
+
+ol {
+  list-style-position: inside;
+}

@@ -7,6 +7,7 @@ const DefaultImage = ({
   alternativeText,
   rounded,
   fill,
+  contain,
 }: {
   height?: number;
   width?: number;
@@ -14,6 +15,7 @@ const DefaultImage = ({
   alternativeText?: string;
   rounded?: boolean;
   fill?: boolean;
+  contain?: boolean;
 }) => {
   return height && width ? (
     <Image
@@ -30,7 +32,7 @@ const DefaultImage = ({
       className={`${rounded && "border rounded-lg"}`}
       layout="fill"
       objectPosition="center"
-      objectFit={fill ? "fill" : "contain"}
+      objectFit={fill ? "fill" : contain ? "contain" : "cover"}
     />
   );
 };

@@ -14,8 +14,6 @@ const CaseStudyContentPostCards = ({ element }: { element: PostCards }) => {
 
   const post_cards = element.PostCard;
 
-  console.log("HELLO");
-
   return mounted && post_cards.length > 0 ? (
     <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center md:items-start  gap-10">
       {post_cards.length > 0 &&
@@ -32,7 +30,11 @@ const CaseStudyContentPostCards = ({ element }: { element: PostCards }) => {
             >
               {post_card.icon && (
                 <div className="h-16 w-16 relative ">
-                  <DefaultImage url={url} alternativeText={alternativeText} />
+                  <DefaultImage
+                    url={url}
+                    alternativeText={alternativeText}
+                    contain
+                  />
                 </div>
               )}
               <span
