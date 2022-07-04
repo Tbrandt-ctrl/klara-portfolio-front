@@ -19,7 +19,7 @@ const CaseStudy = ({ caseStudy }: { caseStudy: CaseStudy }) => {
     <>
       <main className="w-full">
         <CaseStudyHero attributes={attributes} />
-        <div className="w-full md:px-36 lg:px-44 xl:px-64">
+        <div className="w-full md:px-20 lg:px-44 xl:px-64">
           <CaseStudyAttributesSection attributes={attributes} />
           <CaseStudyContentSection attributes={attributes} />
         </div>

@@ -2,17 +2,20 @@ import { CaseStudyAttributes } from "@/types/queries/caseStudy";
 import DefaultImage from "@/utils/DefaultImage";
 
 const CaseStudyHero = ({ attributes }: { attributes: CaseStudyAttributes }) => {
-  const { thumbnail, title } = attributes && attributes;
+  const { page_thumbnail, title } = attributes && attributes;
+  console.log(attributes);
 
   const alternativeText =
-    (thumbnail.data && thumbnail.data.attributes.alternativeText) || "";
+    (page_thumbnail?.data && page_thumbnail.data.attributes.alternativeText) ||
+    "";
 
-  const url = (thumbnail.data && thumbnail.data.attributes.url) || "";
+  const url =
+    (page_thumbnail?.data && page_thumbnail.data.attributes.url) || "";
 
   return (
-    <div className="relative h-screen fccc p-40 gap-10">
-      <div className="relative h-[80vh] w-[80vw]">
-        {thumbnail && url && (
+    <div className="relative h-screen fccc px-0 md:px-10 gap-10">
+      <div className="relative h-80 md:h-[55vh] w-full">
+        {page_thumbnail && url && (
           <DefaultImage
             rounded
             url={url}
@@ -21,7 +24,10 @@ const CaseStudyHero = ({ attributes }: { attributes: CaseStudyAttributes }) => {
         )}
       </div>
 
-      <h1 className="text-3xl font-bold text-main ">{title}</h1>
+      <div className="w-full px-5 md:px-36 fccc">
+        {" "}
+        <h1 className="text-center text-3xl font-bold text-main ">{title}</h1>
+      </div>
     </div>
   );
 };

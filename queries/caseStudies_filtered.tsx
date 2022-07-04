@@ -15,6 +15,9 @@ const CASESTUDIES_FILTERED_QUERY = gql`
           thumbnail {
             ...imageField
           }
+          page_thumbnail {
+            ...imageField
+          }
         }
       }
     }

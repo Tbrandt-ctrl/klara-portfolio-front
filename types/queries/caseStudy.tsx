@@ -5,6 +5,7 @@ interface CaseStudyFilteredAttributes {
   title: string;
   short_description: string;
   thumbnail: Image;
+  page_thumbnail: Image;
   slug: string;
 }
 
@@ -58,6 +59,7 @@ interface CaseStudyAttributes {
   title: string;
   short_description: string;
   thumbnail: Image;
+  page_thumbnail: Image;
   AttributeCards: AttributeCard[];
   content: (
     | TextContent

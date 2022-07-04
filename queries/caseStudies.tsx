@@ -14,6 +14,10 @@ const CASESTUDY_FILTER_QUERY = gql`
             ...imageField
           }
 
+          page_thumbnail {
+            ...imageField
+          }
+
           content {
             ... on ComponentButtonButtonLink {
               id
